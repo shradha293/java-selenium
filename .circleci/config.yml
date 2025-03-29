@@ -9,13 +9,16 @@ jobs:
       - image: cimg/openjdk:17.0
     steps:
       - checkout
+
       - browser-tools/install-chrome
+
       - run:
           name: Run tests
           command: mvn clean test
+
       - store_artifacts:
-          path: target/reports
-          destination: test-result
+         path: target/reports
+         destination: test-result
 
 workflows:
   build-and-test:
